@@ -55,41 +55,51 @@
       .grid{grid-template-columns:1fr}
     }
 
-    /* ===== Minimal Netflix-style Intro (black bg, red name) ===== */
-    #intro {
-      position: fixed; inset: 0;
-      background: #0f0f0f;   /* pure dark */
-      display: grid; place-items: center;
-      z-index: 9999; overflow: hidden;
+    /* ===== Curved-name Intro (black bg, Netflix red) ===== */
+    #intro{
+      position:fixed; inset:0;
+      background:#0f0f0f;          /* pure dark */
+      display:grid; place-items:center;
+      z-index:9999; overflow:hidden;
     }
-    .intro-text{
-      font-family: "Bebas Neue", system-ui, sans-serif;
-      color: #e50914;                   /* Netflix red */
-      letter-spacing: .02em;
-      font-size: clamp(28px, 8vw, 72px);/* start size like your screenshot */
-      line-height: 1;
-      transform: scale(1);
-      opacity: 1;
-      /* Wait 0.5s, then zoom & fade over 0.9s */
-      animation: zoomFade 0.9s ease-in 0.5s forwards;
+    .intro-svg{
+      width:min(80%, 900px);
+      height:auto;
+      transform-origin:50% 50%;
+      animation: zoomFade .9s ease-in .5s forwards; /* wait .5s, then zoom+fade */
     }
-    /* After the text completes, fade the whole overlay out quickly */
-    #intro.fade-out { animation: overlayOut .25s linear forwards; }
+    .intro-svg text{
+      fill:#e50914;                 /* Netflix red */
+      font-family:"Bebas Neue", system-ui, sans-serif;
+      letter-spacing:2px;
+    }
+    /* fade overlay after zoomFade completes */
+    #intro.fade-out{ animation: overlayOut .25s linear forwards; }
 
-    @keyframes zoomFade {
-      0%   { transform: scale(1);   opacity: 1; }
-      100% { transform: scale(1.9); opacity: 0; }
+    @keyframes zoomFade{
+      0%   { transform:scale(1);   opacity:1; }
+      100% { transform:scale(3.8); opacity:0; }
     }
-    @keyframes overlayOut {
-      to { opacity: 0; visibility: hidden; pointer-events: none; }
+    @keyframes overlayOut{
+      to { opacity:0; visibility:hidden; pointer-events:none; }
     }
   </style>
 </head>
 <body>
 
-  <!-- Intro Splash -->
+  <!-- Intro Splash with curved text -->
   <div id="intro" aria-hidden="true">
-    <div class="intro-text">KAI JIE LIM</div>
+    <svg viewBox="0 0 800 200" class="intro-svg" role="img" aria-label="Kai Jie Lim">
+      <defs>
+        <!-- Slight upward arc (adjust numbers to change curvature) -->
+        <path id="name-arc" d="M 100 130 A 300 180 0 0 1 700 130" fill="none"/>
+      </defs>
+      <text font-size="48">
+        <textPath href="#name-arc" startOffset="50%" text-anchor="middle">
+          KAI JIE LIM
+        </textPath>
+      </text>
+    </svg>
   </div>
 
   <div class="wrap">
@@ -134,25 +144,21 @@
     // footer year
     document.getElementById('y').textContent = new Date().getFullYear();
 
-    // After the text zoom/fade completes, quickly fade the overlay itself and remove it
+    // After the intro zoom/fade completes, fade the overlay and remove it
     (function(){
       const intro = document.getElementById('intro');
-      const text  = intro.querySelector('.intro-text');
+      const svgEl = intro.querySelector('.intro-svg');
 
-      // When zoomFade finishes on the text, fade out the overlay
-      text.addEventListener('animationend', () => {
+      svgEl.addEventListener('animationend', () => {
         intro.classList.add('fade-out');
       });
 
-      // When overlay fade finishes, remove node
       intro.addEventListener('animationend', (e) => {
-        if (e.animationName === 'overlayOut') {
-          intro.remove();
-        }
+        if (e.animationName === 'overlayOut') intro.remove();
       });
 
-      // Safety: remove after 2 seconds in case events are missed
-      setTimeout(() => intro.remove(), 2000);
+      // safety remove
+      setTimeout(() => intro.remove(), 2200);
     })();
   </script>
 </body>
