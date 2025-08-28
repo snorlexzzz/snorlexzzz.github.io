@@ -47,9 +47,12 @@
     h2{font-size:28px;margin:0 0 10px}
     p{margin:8px 0}
     .pill{display:inline-block;padding:6px 10px;border:1px solid #24324b;border-radius:999px;background:#111a2a;color:#aab3c6;font-size:14px;margin:4px 6px 0 0}
+
     .grid{display:grid;grid-template-columns:repeat(2,1fr);gap:18px}
     .card{background:rgba(255,255,255,.03);border:1px solid rgba(255,255,255,.08);border-radius:var(--radius);box-shadow:var(--shadow);padding:22px}
+
     .resume-btn{display:inline-block;margin-top:8px;padding:10px 14px;border-radius:12px;background:linear-gradient(135deg,var(--brand),var(--brand-2));color:#0b1220;font-weight:700}
+
     footer{color:var(--muted);text-align:center;padding:40px 0}
 
     @media (max-width:900px){
@@ -65,20 +68,31 @@
       z-index:9999; overflow:hidden;
     }
     .intro-svg{
-      width:min(90vw, 900px);
-      height:220px;                 /* explicit height so it always paints */
+      width:min(92vw, 1000px);
+      height:260px;                 /* taller so arc is fully visible */
       transform-origin:50% 50%;
-      transform-box: fill-box;      /* ensures scaling works in Safari/Chrome */
+      transform-box: fill-box;      /* better cross-browser transform */
       will-change: transform, opacity;
       animation: zoomFade .9s ease-in .5s forwards; /* wait .5s, then zoom+fade */
     }
-    /* paint the text red no matter what */
+    /* paint the text red (SVG text + textPath, both) */
     .intro-svg text,
     .intro-svg textPath{
-      fill:#e50914;                 /* Netflix red */
+      fill:#e50914;
       font-family:"Bebas Neue", system-ui, sans-serif;
       letter-spacing:2px;
     }
+    /* Fallback plain text (shows only if SVG textPath fails) */
+    .intro-fallback{
+      position:absolute; inset:0; display:grid; place-items:center;
+      font-family:"Bebas Neue", system-ui, sans-serif;
+      color:#e50914; letter-spacing:2px;
+      font-size:clamp(28px,8vw,72px);
+      opacity:0; transform:scale(1);
+      pointer-events:none;
+    }
+    .intro-fallback.show{ opacity:1; }
+
     /* fade overlay after zoomFade completes */
     #intro.fade-out{ animation: overlayOut .25s linear forwards; }
 
@@ -95,17 +109,27 @@
 
   <!-- Intro Splash with curved text -->
   <div id="intro" aria-hidden="true">
-    <svg viewBox="0 0 800 200" class="intro-svg" role="img" aria-label="Kai Jie Lim">
+    <svg
+      class="intro-svg"
+      viewBox="0 0 800 260"
+      role="img"
+      aria-label="Kai Jie Lim"
+      xmlns="http://www.w3.org/2000/svg"
+      xmlns:xlink="http://www.w3.org/1999/xlink">
       <defs>
-        <!-- Slight upward arc (tweak Y to change curvature; lower = more curve) -->
-        <path id="name-arc" d="M 100 130 A 300 180 0 0 1 700 130" fill="none"/>
+        <!-- Slight upward arc (apex at y≈70, fully inside viewBox) -->
+        <path id="name-arc" d="M 100 170 A 300 120 0 0 1 700 170" fill="none"/>
       </defs>
       <text font-size="48">
-        <textPath href="#name-arc" startOffset="50%" text-anchor="middle" fill="#e50914">
+        <!-- Use both href and xlink:href for Safari/older browsers -->
+        <textPath href="#name-arc" xlink:href="#name-arc" startOffset="50%" text-anchor="middle">
           KAI JIE LIM
         </textPath>
       </text>
     </svg>
+
+    <!-- Fallback if textPath doesn't render -->
+    <div class="intro-fallback" id="intro-fallback">KAI JIE LIM</div>
   </div>
 
   <div class="wrap">
@@ -150,21 +174,37 @@
     // footer year
     document.getElementById('y').textContent = new Date().getFullYear();
 
-    // Fade overlay after SVG zoom/fade completes, then remove
+    // Show fallback if textPath didn't render, then run same fade-out timing
     (function(){
       const intro = document.getElementById('intro');
       const svgEl = intro.querySelector('.intro-svg');
+      const textPath = intro.querySelector('textPath');
+      const fallback = document.getElementById('intro-fallback');
 
-      svgEl.addEventListener('animationend', () => {
-        intro.classList.add('fade-out');
-      });
+      // If text length is 0 (or throws), show fallback
+      let needFallback = false;
+      try {
+        needFallback = !textPath || textPath.getComputedTextLength() === 0;
+      } catch (e) {
+        needFallback = true;
+      }
+      if (needFallback && fallback) {
+        fallback.classList.add('show');
+        // animate fallback with the same zoom+fade
+        fallback.style.animation = 'zoomFade .9s ease-in .5s forwards';
+      }
+
+      // After the zoom/fade, fade overlay and remove
+      const endAnim = () => intro.classList.add('fade-out');
+      svgEl.addEventListener('animationend', endAnim);
+      if (fallback) fallback.addEventListener('animationend', endAnim);
 
       intro.addEventListener('animationend', (e) => {
         if (e.animationName === 'overlayOut') intro.remove();
       });
 
-      // safety: remove after 2.4s in case of missed events
-      setTimeout(() => intro.remove(), 2400);
+      // safety: remove after ~2.6s
+      setTimeout(() => intro.remove(), 2600);
     })();
   </script>
 </body>
