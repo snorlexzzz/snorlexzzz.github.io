@@ -40,7 +40,6 @@
       grid-template-columns: 180px 24px 1fr;
       column-gap:24px;
       row-gap:28px;
-      align-items:start;
       margin-top:18px;
     }
     .exp-title{
@@ -50,12 +49,18 @@
       line-height: 1.2;
     }
 
-    /* Each row uses the parent grid */
-    .timeline-item{ display: contents; } /* allows children to sit in the grid */
+    .timeline-item{ display: contents; } /* allows children to use grid directly */
+
+    .timeline-date,
+    .timeline-dot,
+    .timeline-content {
+      display:flex;
+      align-items:center;   /* vertically center relative to the row */
+    }
 
     .timeline-date{
       grid-column:1;
-      text-align:left;          /* aligns left edge with heading */
+      justify-content:flex-start;
       color:var(--muted);
       font-size:15px;
       font-weight:600;
@@ -65,11 +70,15 @@
     }
     .timeline-dot{
       grid-column:2;
-      justify-self:center;
+      justify-content:center;
+    }
+    .timeline-dot::before {
+      content:"";
       width:18px;height:18px;border-radius:50%;
       background:var(--brand);
       border:3px solid var(--bg);
       box-shadow:0 0 0 3px var(--line);
+      display:block;
     }
     .timeline-content{
       grid-column:3;
@@ -78,6 +87,7 @@
       border-radius:var(--radius);
       box-shadow:var(--shadow);
       padding:16px 18px;
+      display:block; /* override flex, keep card natural */
     }
 
     footer{color:var(--muted);text-align:center;padding:40px 0}
@@ -103,7 +113,6 @@
     <header>
       <div class="brand">Kai Jie Lim</div>
       <nav class="nav" id="main-nav">
-        <!-- If your site is a user site, you can also use absolute paths like href="/index.html" -->
         <a href="index.html">Home</a>
         <a href="experience.html" class="active">Experience</a>
         <a href="projects.html">Projects</a>
