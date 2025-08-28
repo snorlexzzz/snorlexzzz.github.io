@@ -11,40 +11,33 @@
     :root{
       --bg:#0b1220;--ink:#dbe3f3;--muted:#97a3b8;--panel:#101a2b;--line:#1f2a44;--brand:#22c55e;--brand-2:#a7f3d0;
       --radius:18px;--shadow:0 10px 30px rgba(0,0,0,.35)
-    }
-    *{box-sizing:border-box}
-    html,body{height:100%}
-    html{scroll-behavior:smooth}
-    body{margin:0;background:radial-gradient(900px 500px at 10% -20%,rgba(34,197,94,.08),transparent),var(--bg);color:var(--ink);font:500 16px/1.6 Inter,ui-sans-serif,system-ui,-apple-system,Segoe UI,Roboto,Helvetica,Arial}
-    a{color:var(--ink);text-decoration:none}
-    .wrap{max-width:1120px;margin:0 auto;padding:32px 22px}
-    .nav{display:flex;gap:20px;flex-wrap:wrap;align-items:center}
-    .nav a{opacity:.7;padding:8px 12px;border-radius:999px}
-    .nav a.active,.nav a:hover{opacity:1;background:rgba(255,255,255,.04)}
-    header{display:grid;gap:14px;margin-top:40px}
-    .brand{font-weight:800;font-size:52px;letter-spacing:-.02em}
-    .subtitle{font-size:22px;color:var(--muted)}
-    .pill{display:inline-block;padding:6px 10px;border:1px solid #24324b;border-radius:999px;background:#111a2a;color:#aab3c6;font-size:14px;margin:4px 6px 0 0}
     .timeline {
-      position: relative;
       margin: 40px 0;
-      padding-left: 30px;
-      border-left: 3px solid var(--line);
+    }
+    .timeline-item {
+      display: flex;
+      align-items: center;
+      margin-bottom: 56px;
     }
     .timeline-date {
-      position: absolute;
-      left: -150px;
-      top: 18px;
-      width: 120px;
-      text-align: right;
+      margin-right: 24px;
       color: var(--muted);
       font-size: 15px;
       font-weight: 600;
       letter-spacing: 0.01em;
       white-space: nowrap;
+      min-width: 120px;
+      text-align: right;
     }
-    .timeline-content {
-      background: rgba(255,255,255,.03);
+    .timeline-dot {
+      width: 18px;
+      height: 18px;
+      background: var(--brand);
+      border-radius: 50%;
+      border: 3px solid var(--bg);
+      box-shadow: 0 0 0 3px var(--line);
+      margin-right: 24px;
+    }
       border: 1px solid rgba(255,255,255,.08);
       border-radius: var(--radius);
       box-shadow: var(--shadow);
@@ -102,11 +95,12 @@
       <h1>Experience</h1>
       <div class="timeline">
         <div class="timeline-item">
-            <div class="timeline-dot"></div>
             <div class="timeline-date">Aug 2024 - Dec 2025</div>
+            <div class="timeline-dot"></div>
             <div class="timeline-content">
                 <strong>Data Modelling and Engineering Intern</strong>
                 <p>The Coca-Cola Company</p>
+            </div>
             </div>
             </div>
             <div class="timeline-item">
