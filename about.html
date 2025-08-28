@@ -3,13 +3,11 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>Kai Jie — Portfolio</title>
-  <meta name="description" content="Personal portfolio of Kai Jie: data engineering, markets, analytics." />
+  <title>About — Kai Jie</title>
+  <meta name="description" content="About Kai Jie: education and technical skills." />
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <!-- Site font -->
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
-
   <style>
     :root{
       --bg:#0b1220;--ink:#dbe3f3;--muted:#97a3b8;--panel:#101a2b;--line:#1f2a44;--brand:#22c55e;--brand-2:#a7f3d0;
@@ -18,28 +16,15 @@
     *{box-sizing:border-box}
     html,body{height:100%}
     html{scroll-behavior:smooth}
-    body{
-      margin:0;
-      background:radial-gradient(900px 500px at 10% -20%,rgba(34,197,94,.08),transparent),var(--bg);
-      color:var(--ink);
-      font:500 16px/1.6 Inter,ui-sans-serif,system-ui,-apple-system,Segoe UI,Roboto,Helvetica,Arial
-    }
+    body{margin:0;background:radial-gradient(900px 500px at 10% -20%,rgba(34,197,94,.08),transparent),var(--bg);color:var(--ink);font:500 16px/1.6 Inter,ui-sans-serif,system-ui,-apple-system,Segoe UI,Roboto,Helvetica,Arial}
     a{color:var(--ink);text-decoration:none}
     .wrap{max-width:1120px;margin:0 auto;padding:32px 22px}
-
-    /* NAV */
     .nav{display:flex;gap:20px;flex-wrap:wrap;align-items:center}
     .nav a{opacity:.7;padding:8px 12px;border-radius:999px}
     .nav a.active,.nav a:hover{opacity:1;background:rgba(255,255,255,.04)}
-
     header{display:grid;gap:14px;margin-top:40px}
     .brand{font-weight:800;font-size:52px;letter-spacing:-.02em}
     .subtitle{font-size:22px;color:var(--muted)}
-
-    .social{display:flex;gap:12px;margin-top:18px}
-    .icon{width:40px;height:40px;border-radius:999px;background:#1a2436;display:grid;place-items:center;border:1px solid #24324b}
-    .icon:hover{transform:translateY(-1px)}
-
     .sections{margin-top:28px}
     section{padding:72px 0;border-top:1px solid var(--line)}
     h2{font-size:28px;margin:0 0 10px}
@@ -47,9 +32,7 @@
     .pill{display:inline-block;padding:6px 10px;border:1px solid #24324b;border-radius:999px;background:#111a2a;color:#aab3c6;font-size:14px;margin:4px 6px 0 0}
     .grid{display:grid;grid-template-columns:repeat(2,1fr);gap:18px}
     .card{background:rgba(255,255,255,.03);border:1px solid rgba(255,255,255,.08);border-radius:var(--radius);box-shadow:var(--shadow);padding:22px}
-    .resume-btn{display:inline-block;margin-top:8px;padding:10px 14px;border-radius:12px;background:linear-gradient(135deg,var(--brand),var(--brand-2));color:#0b1220;font-weight:700}
     footer{color:var(--muted);text-align:center;padding:40px 0}
-
     @media (max-width:900px){
       .brand{font-size:42px}
       .grid{grid-template-columns:1fr}
@@ -57,48 +40,48 @@
   </style>
 </head>
 <body>
-
   <div class="wrap">
-    <!-- HERO -->
-    <header id="home">
-      <div class="brand">Kai Jie Lim</div>
-      <div class="subtitle">I’m passionate about applying data science to real-world problems in finance, trading, and macroeconomic analysis.</div>
+    <header>
+      <div class="brand">About Kai Jie</div>
       <nav class="nav" id="main-nav">
-        <a href="index.html" class="active">Home</a>
-        <a href="about.html">About</a>
+        <a href="index.html">Home</a>
+        <a href="about.html" class="active">About</a>
         <a href="experience.html">Experience</a>
         <a href="projects.html">Projects</a>
         <a href="resume.html">Resume</a>
       </nav>
-      <div class="social">
-        <a class="icon" aria-label="LinkedIn" href="https://www.linkedin.com/in/kai-jie-l-989153208/" target="_blank" rel="noopener">
-          <svg width="20" height="20" fill="currentColor" viewBox="0 0 24 24"><path d="M4.98 3.5C4.98 4.88 3.86 6 2.5 6S0 4.88 0 3.5 1.12 1 2.5 1s2.48 1.12 2.48 2.5zM.5 8h4V23H.5zM8 8h3.8v2.05h.05c.53-1 1.83-2.05 3.77-2.05 4.03 0 4.78 2.65 4.78 6.09V23h-4V15.5c0-1.79-.03-4.09-2.5-4.09-2.5 0-2.88 1.95-2.88 3.96V23H8z"/></svg>
-        </a>
-        <a class="icon" aria-label="GitHub" href="https://github.com/snorlexzzz" target="_blank" rel="noopener">
-          <svg width="20" height="20" fill="currentColor" viewBox="0 0 24 24"><path d="M12 .5a12 12 0 0 0-3.79 23.4c.6.11.82-.26.82-.58v-2.02c-3.34.73-4.04-1.61-4.04-1.61-.55-1.39-1.34-1.76-1.34-1.76-1.09-.75.08-.74.08-.74 1.2.08 1.83 1.24 1.83 1.24 1.07 1.83 2.8 1.3 3.48.99.11-.78.42-1.3.76-1.6-2.66-.3-5.46-1.33-5.46-5.93 0-1.31.47-2.38 1.24-3.22-.13-.3-.54-1.52.12-3.17 0 0 1.01-.32 3.3 1.23a11.46 11.46 0 0 1 6.01 0c2.28-1.55 3.29-1.23 3.29-1.23.66 1.65.25 2.87.13 3.17.77.84 1.23 1.91 1.23 3.22 0 4.61-2.8 5.63-5.47 5.93.43.37.81 1.1.81 2.22v3.29c0 .33.21.71.83.59A12 12 0 0 0 12 .5z"/></svg>
-        </a>
-        <a class="icon" aria-label="Email" href="mailto:kaijielim.lkj@gmail.com">
-          <svg width="20" height="20" fill="currentColor" viewBox="0 0 24 24"><path d="M20 4H4a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V6a2 2 0 0 0-2-2zm0 4-8 5L4 8V6l8 5 8-5v2z"/></svg>
-        </a>
-      </div>
     </header>
-
     <div class="sections">
-      <p>Through both academic and professional experience, I’ve developed skills in Python, Power BI, and Excel automation to extract insights from complex datasets and support decision-making across front and middle office functions.</p>
-      <p>I’m especially interested in how data-driven tools can enhance risk transparency, optimize trade strategies, and uncover patterns in macro trends.</p>
-
-      <section id="contact">
-        <h2>Contact</h2>
-        <p>Email: <a href="mailto:kaijielim.lkj@gmail.com">kaijielim.lkj@gmail.com</a></p>
+      <section id="education">
+        <h2>Education</h2>
+        <p><strong>National University of Singapore, 2021-2025</strong> — BSc. Data Science and Analytics (Hons) Focus: Economics & Quantitative Finance.</p>
+        <p><strong>Colgate University, New York, United States of America, 2024</strong> — Exchange Program, undertook studies in Algorithmic Game Theory, Machine Learning, Regression Analysis, Object Oriented Programming.</p>
+      </section>
+      <section id="skills">
+        <h2>Technical Skills</h2>
+        <div style="margin-bottom: 12px;">
+          <strong>Programming Languages:</strong>
+          <span class="pill">R</span>
+          <span class="pill">Python</span>
+          <span class="pill">SQL</span>
+          <span class="pill">Java</span>
+        </div>
+        <div>
+          <strong>Tools / Frameworks:</strong>
+          <span class="pill">Azure Data Lake</span>
+          <span class="pill">Azure Data Factory</span>
+          <span class="pill">Snowflake</span>
+          <span class="pill">PowerBI</span>
+          <span class="pill">Pandas</span>
+          <span class="pill">Numpy</span>
+          <span class="pill">Tensorflow</span>
+          <span class="pill">BERT</span>
+          <span class="pill">NLP</span>
+        </div>
       </section>
     </div>
-
     <footer>© Kai Jie <span id="y"></span></footer>
   </div>
-
-  <script>
-    // footer year
-    document.getElementById('y').textContent = new Date().getFullYear();
-  </script>
+  <script>document.getElementById('y').textContent = new Date().getFullYear();</script>
 </body>
 </html>
