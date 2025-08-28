@@ -46,6 +46,17 @@
       border: 3px solid var(--bg);
       box-shadow: 0 0 0 3px var(--line);
     }
+    .timeline-date {
+        position: absolute;
+        left: -120px;
+        top: 18px;
+        width: 100px;
+        text-align: right;
+        color: var(--muted);
+        font-size: 15px;
+        font-weight: 600;
+        letter-spacing: 0.01em;
+    }
     .timeline-content {
       background: rgba(255,255,255,.03);
       border: 1px solid rgba(255,255,255,.08);
@@ -76,19 +87,21 @@
       <h1>Experience</h1>
       <div class="timeline">
         <div class="timeline-item">
-          <div class="timeline-dot"></div>
-          <div class="timeline-content">
-            <strong>Data Modelling and Engineering Intern</strong>
-            <p>The Coca-Cola Company, Aug 2024-Dec 2025</p>
-          </div>
-        </div>
+            <div class="timeline-date">Aug 2024 - Dec 2025</div>
+            <div class="timeline-dot"></div>
+            <div class="timeline-content">
+                <strong>Data Modelling and Engineering Intern</strong>
+                <p>The Coca-Cola Company</p>
+            </div>
+            </div>
         <div class="timeline-item">
-          <div class="timeline-dot"></div>
-          <div class="timeline-content">
-            <strong>Data Analyst Intern/strong>
-            <p>Mitsubishi Corporation RtM International Pte. Ltd.</p>
-          </div>
+            <div class="timeline-date">July 2023 - Jan 2024</div>
+            <div class="timeline-dot"></div>
+            <div class="timeline-content">
+                <strong>Data Analyst Intern</strong>
+                <p>Mitsubishi Corporation RtM International Pte. Ltd.</p>
         </div>
+</div>
       </div>
     </main>
   <footer>© Kai Jie <span id="y"></span></footer>
