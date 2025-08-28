@@ -15,20 +15,50 @@
     *{box-sizing:border-box}
     html,body{height:100%}
     html{scroll-behavior:smooth}
-    body{margin:0;background:radial-gradient(900px 500px at 10% -20%,rgba(34,197,94,.08),transparent),var(--bg);color:var(--ink);font:500 16px/1.6 Inter,ui-sans-serif,system-ui,-apple-system,Segoe UI,Roboto,Helvetica,Arial}
+    body{
+      margin:0;
+      background:radial-gradient(900px 500px at 10% -20%,rgba(34,197,94,.08),transparent),var(--bg);
+      color:var(--ink);
+      font:500 16px/1.6 Inter,ui-sans-serif,system-ui,-apple-system,Segoe UI,Roboto,Helvetica,Arial
+    }
     a{color:var(--ink);text-decoration:none}
     .wrap{max-width:1120px;margin:0 auto;padding:32px 22px}
+
+    /* nav */
     .nav{display:flex;gap:20px;flex-wrap:wrap;align-items:center}
     .nav a{opacity:.7;padding:8px 12px;border-radius:999px}
     .nav a.active,.nav a:hover{opacity:1;background:rgba(255,255,255,.04)}
+
     header{display:grid;gap:14px;margin-top:40px}
-  .brand{font-weight:800;font-size:52px;letter-spacing:-.02em}
-  section{padding:72px 0;border-top:1px solid var(--line)}
+    .brand{font-weight:800;font-size:52px;letter-spacing:-.02em}
+
+    /* section rule adds the top line */
+    section{
+      padding:72px 0;
+      border-top:1px solid var(--line);
+    }
+
     .subtitle{font-size:22px;color:var(--muted)}
     .grid{display:grid;grid-template-columns:repeat(2,1fr);gap:18px}
-    .card{background:rgba(255,255,255,.03);border:1px solid rgba(255,255,255,.08);border-radius:var(--radius);box-shadow:var(--shadow);padding:22px}
-    .pill{display:inline-block;padding:6px 10px;border:1px solid #24324b;border-radius:999px;background:#111a2a;color:#aab3c6;font-size:14px;margin:4px 6px 0 0}
+    .card{
+      background:rgba(255,255,255,.03);
+      border:1px solid rgba(255,255,255,.08);
+      border-radius:var(--radius);
+      box-shadow:var(--shadow);
+      padding:22px
+    }
+    .pill{
+      display:inline-block;
+      padding:6px 10px;
+      border:1px solid #24324b;
+      border-radius:999px;
+      background:#111a2a;
+      color:#aab3c6;
+      font-size:14px;
+      margin:4px 6px 0 0
+    }
     footer{color:var(--muted);text-align:center;padding:40px 0}
+
     @media (max-width:900px){
       .brand{font-size:42px}
       .grid{grid-template-columns:1fr}
@@ -47,29 +77,34 @@
         <a href="resume.html">Resume</a>
       </nav>
     </header>
+
     <main>
-      <h1>Projects</h1>
-      <div class="grid">
-        <div class="card">
-          <strong>China's Energy Markets and Dry Bulk Shipping Outlook, March 2025</strong>
-          <p>Conducted and pitched research on China’s energy landscape and macro trends, analyzing power surpluses, coal reliance and renewable energy transition impacts to forecast shifts in dry bulk shipping demand.</p>
-          <p style="margin-top:10px;">Check out the project pitch <a href="https://drive.google.com/file/d/1nquTlfzLzjs0-2HJ7hSDNVUqA-s9oKLH/view?usp=sharing" target="_blank" rel="noopener" style="text-decoration:underline;">here</a>!</p>
-        </div>        
-        <div class="card">
-          <strong>Central Bank Sentiment Analysis, Feb 2025</strong>
-          <p>This project studies how central bank communications influence interest rate decisions. It focuses on speeches from U.S. Federal Reserve Chairs (Powell, Yellen, Bernanke) and European Central Bank officials. Using FinBERT, a financial sentiment analysis model, speeches are classified as Hawkish (Bullish), Neutral, or Dovish (Bearish) (multi-class classification). The goal is to test whether the sentiment expressed in these speeches aligns with the subsequent interest rate changes, providing insight into how monetary policy signals are communicated and interpreted.</p>
-          <a class="pill" href="https://github.com/snorlexzzz/central-bank-sentiment-analysis">Repo</a>
+      <section>
+        <h1>Projects</h1>
+        <div class="grid">
+          <div class="card">
+            <strong>China's Energy Markets and Dry Bulk Shipping Outlook, March 2025</strong>
+            <p>Conducted and pitched research on China’s energy landscape and macro trends, analyzing power surpluses, coal reliance and renewable energy transition impacts to forecast shifts in dry bulk shipping demand.</p>
+            <p style="margin-top:10px;">Check out the project pitch <a href="https://drive.google.com/file/d/1nquTlfzLzjs0-2HJ7hSDNVUqA-s9oKLH/view?usp=sharing" target="_blank" rel="noopener" style="text-decoration:underline;">here</a>!</p>
+          </div>        
+          <div class="card">
+            <strong>Central Bank Sentiment Analysis, Feb 2025</strong>
+            <p>This project studies how central bank communications influence interest rate decisions. It focuses on speeches from U.S. Federal Reserve Chairs (Powell, Yellen, Bernanke) and European Central Bank officials. Using FinBERT, a financial sentiment analysis model, speeches are classified as Hawkish (Bullish), Neutral, or Dovish (Bearish) (multi-class classification). The goal is to test whether the sentiment expressed in these speeches aligns with the subsequent interest rate changes, providing insight into how monetary policy signals are communicated and interpreted.</p>
+            <a class="pill" href="https://github.com/snorlexzzz/central-bank-sentiment-analysis">Repo</a>
+          </div>
+          <div class="card">
+            <strong>Crewpto, Jan 2025</strong>
+            <p>Blockchain-based platform designed to simplify group expense management by integrating Metamask, a smart contract, and the XRPL EVM Sidechain Testnet.</p>
+            <a class="pill" href="https://github.com/snorlexzzz/crewpto">Repo</a>
+            <p style="margin-top:10px;">Check out the project pitch <a href="https://drive.google.com/file/d/1Dlga3ApsMtumLme5lGEj3swMhVITUkwL/view?usp=sharing" target="_blank" rel="noopener" style="text-decoration:underline;">here</a>!</p>
+          </div>
         </div>
-        <div class="card">
-          <strong>Crewpto, Jan 2025</strong>
-          <p>Blockchain-based platform designed to simplify group expense management by integrating Metamask, a smart contract, and the XRPL EVM Sidechain Testnet.</p>
-          <a class="pill" href="https://github.com/snorlexzzz/crewpto">Repo</a>
-          <p style="margin-top:10px;">Check out the project pitch <a href="https://drive.google.com/file/d/1Dlga3ApsMtumLme5lGEj3swMhVITUkwL/view?usp=sharing" target="_blank" rel="noopener" style="text-decoration:underline;">here</a>!</p>
-        </div>
-      </div>
+      </section>
     </main>
-  <footer>© Kai Jie <span id="y"></span></footer>
+
+    <footer>© Kai Jie <span id="y"></span></footer>
   </div>
+
   <script>
     // year
     document.getElementById('y').textContent = new Date().getFullYear();
