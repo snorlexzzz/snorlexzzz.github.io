@@ -31,26 +31,9 @@
       padding-left: 30px;
       border-left: 3px solid var(--line);
     }
-    .timeline-item {
-      position: relative;
-      margin: 40px 0 40px 180px; /* shifts the whole timeline right */
-      padding-left: 30px;
-      border-left: 3px solid var(--line);
-    }
-    .timeline-dot {
-      position: absolute;
-      left: -11px;
-      top: 0;
-      width: 18px;
-      height: 18px;
-      background: var(--brand);
-      border-radius: 50%;
-      border: 3px solid var(--bg);
-      box-shadow: 0 0 0 3px var(--line);
-    }
     .timeline-date {
       position: absolute;
-      left: -150px;   /* shifts date further left to align with heading */
+      left: -150px;
       top: 18px;
       width: 120px;
       text-align: right;
@@ -58,6 +41,7 @@
       font-size: 15px;
       font-weight: 600;
       letter-spacing: 0.01em;
+      white-space: nowrap;
     }
     .timeline-content {
       background: rgba(255,255,255,.03);
