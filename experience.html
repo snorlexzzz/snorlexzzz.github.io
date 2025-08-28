@@ -53,6 +53,34 @@
       min-width: 220px;
       max-width: 700px;
     }
+    .timeline-item {
+        position: relative;
+        margin-bottom: 56px; /* more space between cards */
+        min-height: 60px;
+    }
+    .timeline-dot {
+        position: absolute;
+        left: -60px;
+        top: 28px;
+        width: 18px;
+        height: 18px;
+        background: var(--brand);
+        border-radius: 50%;
+        border: 3px solid var(--bg);
+        box-shadow: 0 0 0 3px var(--line);
+    }
+    .timeline-date {
+        position: absolute;
+        left: -150px;
+        top: 24px;
+        width: 90px;
+        text-align: right;
+        color: var(--muted);
+        font-size: 15px;
+        font-weight: 600;
+        letter-spacing: 0.01em;
+        white-space: nowrap;
+    }
     footer{color:var(--muted);text-align:center;padding:40px 0}
     @media (max-width:900px){
       .brand{font-size:42px}
@@ -74,18 +102,20 @@
       <h1>Experience</h1>
       <div class="timeline">
         <div class="timeline-item">
-          <div class="timeline-dot"></div>
-          <div class="timeline-content">
-            <strong>Data Modelling and Engineering Intern</strong>
-            <p>The Coca-Cola Company, Aug 2024-Dec 2025</p>
-          </div>
-        </div>
-        <div class="timeline-item">
-          <div class="timeline-dot"></div>
-          <div class="timeline-content">
-            <strong>Work Experience 2</strong>
-            <p>Details about your work experience go here.</p>
-          </div>
+            <div class="timeline-dot"></div>
+            <div class="timeline-date">Aug 2024 - Dec 2025</div>
+            <div class="timeline-content">
+                <strong>Data Modelling and Engineering Intern</strong>
+                <p>The Coca-Cola Company</p>
+            </div>
+            </div>
+            <div class="timeline-item">
+            <div class="timeline-dot"></div>
+            <div class="timeline-date">July 2023 - Jan 2024</div>
+            <div class="timeline-content">
+                <strong>Work Experience 2</strong>
+                <p>Details about your work experience go here.</p>
+            </div>
         </div>
       </div>
     </main>
