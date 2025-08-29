@@ -87,36 +87,57 @@ main > section:first-of-type {
 .resume-btn:hover { opacity: .9; }
 
 /* ===== Timeline (Experience Page) ===== */
-.timeline-item { display: contents; }
-.timeline-date,
-.timeline-dot,
-.timeline-content { display: flex; align-items: center; }
-.timeline-date {
+/* ===== Timeline (Experience) ===== */
+.experience{
+  display: grid;
+  grid-template-columns: 180px 24px 1fr;  /* date | dot | card */
+  column-gap: 24px;
+  row-gap: 28px;
+}
+
+/* if your H1 uses .page-title inside the section */
+.experience .page-title{ grid-column: 1 / -1; margin: 10px 0 12px; }
+
+.timeline-item{ display: contents; } /* lets children occupy the grid cells */
+
+.timeline-date{
   grid-column: 1;
-  justify-content: flex-start;
+  align-self: center;
   color: var(--muted);
   font-size: 15px;
   font-weight: 600;
-  letter-spacing: .01em;
   white-space: nowrap;
-  min-width: 180px;
 }
-.timeline-dot {
-  grid-column: 2; justify-content: center;
+
+.timeline-dot{
+  grid-column: 2;
+  align-self: center;
 }
-.timeline-dot::before {
-  content: ""; width: 18px; height: 18px; border-radius: 50%;
-  background: var(--brand); border: 3px solid var(--bg);
-  box-shadow: 0 0 0 3px var(--line); display: block;
+.timeline-dot::before{
+  content: "";
+  display: block;
+  width: 18px; height: 18px;
+  background: var(--brand);
+  border-radius: 50%;
+  border: 3px solid var(--bg);
+  box-shadow: 0 0 0 3px var(--line);
 }
-.timeline-content {
+
+.timeline-content{
   grid-column: 3;
   background: rgba(255,255,255,.03);
   border: 1px solid rgba(255,255,255,.08);
   border-radius: var(--radius);
   box-shadow: var(--shadow);
   padding: 16px 18px;
-  display: block;
+}
+
+/* Mobile: stack, hide dot */
+@media (max-width: 900px){
+  .experience{ grid-template-columns: 1fr; row-gap: 18px; }
+  .timeline-item{ display: block; }
+  .timeline-dot{ display: none; }
+  .timeline-date{ margin-bottom: 6px; }
 }
 
 /* ===== Footer ===== */
