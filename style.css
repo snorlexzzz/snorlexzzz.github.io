@@ -34,7 +34,7 @@ header { display: grid; gap: 14px; margin-top: 40px; }
 .nav a.active, .nav a:hover { opacity: 1; background: rgba(255,255,255,.04); }
 
 /* ===== Sections ===== */
-section { padding: 72px 0; border-top: 1px solid var(--line); }
+section { padding: 36px 0; border-top: 1px solid var(--line); }
 .page-title {
   font-size: 36px;
   line-height: 1.2;
