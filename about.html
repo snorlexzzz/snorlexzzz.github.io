@@ -13,7 +13,7 @@
 <body>
   <div class="wrap">
     <header>
-      <div class="brand">About Kai Jie</div>
+      <div class="brand">Kai Jie Lim</div>
       <nav class="nav" id="main-nav">
         <a href="index.html">Home</a>
         <a href="about.html" class="active">About</a>
@@ -22,21 +22,29 @@
         <a href="resume.html">Resume</a>
       </nav>
     </header>
-    <div class="sections">
-      <section id="education">
+
+    <main>
+      <!-- First section gives the top line + spacing; page title standardized -->
+      <section>
+        <h1 class="page-title">About Kai Jie</h1>
+
         <h2>Education</h2>
-        <p><strong>National University of Singapore, 2021-2025</strong> — BSc. Data Science and Analytics (Hons) Focus: Economics & Quantitative Finance.</p>
-        <p><strong>Colgate University, New York, United States of America, 2024</strong> — Exchange Program, undertook studies in Algorithmic Game Theory, Machine Learning, Regression Analysis, Object Oriented Programming.</p>
+        <p><strong>National University of Singapore, 2021–2025</strong> — BSc. Data Science and Analytics (Hons). Focus: Economics & Quantitative Finance.</p>
+        <p><strong>Colgate University, New York, United States of America, 2024</strong> — Exchange Program; studies in Algorithmic Game Theory, Machine Learning, Regression Analysis, and Object Oriented Programming.</p>
       </section>
-      <section id="skills">
+
+      <!-- Second section draws the divider between Education and Skills automatically -->
+      <section>
         <h2>Technical Skills</h2>
-        <div style="margin-bottom: 12px;">
+
+        <div style="margin-bottom:12px;">
           <strong>Programming Languages:</strong>
           <span class="pill">R</span>
           <span class="pill">Python</span>
           <span class="pill">SQL</span>
           <span class="pill">Java</span>
         </div>
+
         <div>
           <strong>Tools / Frameworks:</strong>
           <span class="pill">Azure Data Lake</span>
@@ -50,9 +58,13 @@
           <span class="pill">NLP</span>
         </div>
       </section>
-    </div>
+    </main>
+
     <footer>© Kai Jie <span id="y"></span></footer>
   </div>
-  <script>document.getElementById('y').textContent = new Date().getFullYear();</script>
+
+  <script>
+    document.getElementById('y').textContent = new Date().getFullYear();
+  </script>
 </body>
 </html>
